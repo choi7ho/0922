@@ -3,7 +3,7 @@ $('.top_banner i').on('click', function () {
 });
 
 $('.main_slide').on('init afterChange', function (e, s, c) {
-    console.log(e, s, c);
+    //console.log(e, s, c);
     $('.num').text((c ? c + 1 : 1) + "/" + s.slideCount);
     $('.main_visual .btn li').eq(c).addClass('on').siblings().removeClass('on');
     var current = $('.main_slide .slick-current');
@@ -74,4 +74,18 @@ $('.main_product i:last-child').on('click', function () {
 $('.main_product .dots li').on('click', function () {
     var idx = $(this).index();
     $('.product_slide').slick('slickGoTo', idx)
+});
+
+$('.main_customer .tab_menu>li').on('click', function () {
+    var i = $(this).index();
+    $('.main_customer .tab_content>li').eq(i).addClass('on')
+        .siblings().removeClass('on');
+    $(this).addClass('on')
+        .siblings().removeClass('on');
+});
+
+$('#link').on('change', function () {
+    console.log($(this).val())
+    var lnk = $(this).val();
+    lnk && window.open(lnk)
 })
